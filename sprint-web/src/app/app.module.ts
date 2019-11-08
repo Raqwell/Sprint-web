@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './models/navbar/navbar.component';
 import { HomeComponent } from './models/home/home.component';
 import { SprintsComponent } from './models/sprints/sprints.component';
+import { ProfileComponent } from './models/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { SprintsComponent } from './models/sprints/sprints.component';
     NavbarComponent,
     HomeComponent,
     SprintsComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

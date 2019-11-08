@@ -17,4 +17,17 @@ a {
     font-weight: 400;
     padding: 0 .5em;
     text-decoration: none;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 20px;
+}
+
+button {
+    color: #fff;
+    font-weight: 400;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 20px;
+    padding: 0 .5em;
+    text-decoration: none;
+    border: none;
+    background: none;
 }
