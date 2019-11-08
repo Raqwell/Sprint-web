@@ -1,7 +1,11 @@
 <mat-toolbar color="primary">
-    <img src="https://sprint-ng.herokuapp.com/assets/logo.png" alt="" width="100px">
-    <span class="fill-space"></span>
-    <a class="name">≡Sprint</a>
-    <span class="fill-space"></span>
-    <a>Log in</a>  
+    <mat-toolbar-row>
+      <img src="https://sprint-ng.herokuapp.com/assets/logo.png" alt="" width="100px">
+      <span class="fill-space"></span>
+      <a class="name" [routerLink]="['/']" routerLinkActive="router-link-active" >≡Sprint</a>
+      <span class="fill-space"></span>
+      <a [routerLink]="['/sprints']" routerLinkActive="router-link-active" >Sprints</a>
+      <a>Log in</a>  
+    </mat-toolbar-row>
   </mat-toolbar>
+ 
