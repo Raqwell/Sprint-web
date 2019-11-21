@@ -14,3 +14,13 @@ table {
     align-items: center;
     flex-direction: column;
 }
+
+.buttonContainer {
+    width: 100%;
+    text-align: center;
+}
+
+.deleteButton {
+    margin: 20px auto;
+
+}

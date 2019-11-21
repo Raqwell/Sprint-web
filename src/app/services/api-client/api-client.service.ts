@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 import { AuthService } from '../auth/auth.service';
+import { Sprint } from 'src/app/models/sprint';
 
 @Injectable({
   providedIn: 'root'
@@ -46,4 +47,10 @@ export class ApiClientService {
       return this.http.get(this.endpoint + 'sprints/' + this.profile.email).pipe(
           map(this.extractData));
   }
+
+  deleteAllSprintsByUser(): Observable<any> {
+      return this.http.delete(this.endpoint + 'sprints/' + this.profile.email).pipe(
+          map(this.extractData));
+  }
+
 }

@@ -37,7 +37,6 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 </div>
-
-<ul *ngFor="let sprint of sprints">
-    <li>{{ sprint | json }}</li>
-</ul>
+<div class="buttonContainer">
+    <button class="deleteButton" mat-button color="warn" (click)="openDialog()">Delete all sprints</button>
+</div>

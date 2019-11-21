@@ -8,10 +8,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTableModule } from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { SprintsComponent } from "./sprints/sprints.component";
 import { ProfileComponent } from './profile/profile.component';
-import { PastSprintsComponent } from './past-sprints/past-sprints.component';
+import { PastSprintsComponent, DeleteSprintsDialogComponent } from './past-sprints/past-sprints.component';
 import { NewSprintComponent } from './new-sprint/new-sprint.component';
 
 @NgModule({
@@ -19,7 +21,8 @@ import { NewSprintComponent } from './new-sprint/new-sprint.component';
       SprintsComponent,
       ProfileComponent,
       PastSprintsComponent,
-      NewSprintComponent
+      NewSprintComponent,
+      DeleteSprintsDialogComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +33,12 @@ import { NewSprintComponent } from './new-sprint/new-sprint.component';
     MatInputModule,
     MatCheckboxModule,
     FormsModule,
-    MatTableModule
+    MatTableModule,
+    MatButtonModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+      DeleteSprintsDialogComponent
   ]
 })
 export class SprintModule { }
