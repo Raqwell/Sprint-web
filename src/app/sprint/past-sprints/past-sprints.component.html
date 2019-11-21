@@ -1,0 +1,43 @@
+<div class="filterParent">
+    <mat-form-field class="filter">
+        <input matInput placeholder="Filter">
+    </mat-form-field>
+    <table mat-table [dataSource]="sprints" class="mat-elevation-z8">
+        <ng-container matColumnDef="length">
+            <th mat-header-cell *matHeaderCellDef>Length</th>
+            <td mat-cell *matCellDef="let sprint"> {{ sprint.sprintType }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef>Status</th>
+            <td mat-cell *matCellDef="let sprint"> {{ sprint.progress }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef>Date</th>
+            <td mat-cell *matCellDef="let sprint"> {{ sprint.createdAt }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="start">
+            <th mat-header-cell *matHeaderCellDef>Start</th>
+            <td mat-cell *matCellDef="let sprint"> {{ sprint.startedAt }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="finish">
+            <th mat-header-cell *matHeaderCellDef>Finish</th>
+            <td mat-cell *matCellDef="let sprint"> {{ sprint.finishedAt }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef>Description</th>
+            <td mat-cell *matCellDef="let sprint"> {{ sprint.description }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+
+<ul *ngFor="let sprint of sprints">
+    <li>{{ sprint | json }}</li>
+</ul>

@@ -1,0 +1,20 @@
+<div class="card">
+    <h4>Start a sprint!</h4>
+    <mat-form-field>
+        <mat-label>Choose a length:</mat-label>
+        <mat-select required [(value)]="name">
+            <mat-option value="Instant">Instant (5s)</mat-option>
+            <mat-option value="VeryShort">Very short (5mins)</mat-option>
+            <mat-option value="Short">Short (15mins)</mat-option>
+            <mat-option value="Pomodoro">Pomodoro (25mins)</mat-option>
+            <mat-option value="Long">Long (45mins)</mat-option>
+            <mat-option value="VeryLong">Very long (60mins)</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+        <mat-label>Description:</mat-label>
+        <textarea matInput placeholder="What will you be doing?" [formControl]="description" required></textarea>
+    </mat-form-field>
+    <mat-checkbox [(ngModel)]="notify">Notify me when completed!</mat-checkbox>
+</div>

@@ -1,0 +1,16 @@
+table {
+    width: 100%;
+  }
+
+.filter {
+    width: 25%;
+    text-align: center;
+}
+
+.filterParent {
+    width: 100%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+}

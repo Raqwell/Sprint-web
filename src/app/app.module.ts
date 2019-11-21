@@ -5,22 +5,19 @@ import { RoutingModule } from './routing/routing.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from "@angular/forms"
+import { SprintModule } from "./sprint/sprint.module";
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './models/navbar/navbar.component';
-import { HomeComponent } from './models/home/home.component';
-import { SprintsComponent } from './models/sprints/sprints.component';
-import { ProfileComponent } from './models/profile/profile.component';
-import { RegisterComponent } from './models/register/register.component';
-import { LoginComponent } from './models/login/login.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    SprintsComponent,
-    ProfileComponent,
     RegisterComponent,
     LoginComponent,
   ],
@@ -30,7 +27,8 @@ import { LoginComponent } from './models/login/login.component';
     MatToolbarModule,
     RoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    SprintModule
   ],
   providers: [],
   bootstrap: [AppComponent]
