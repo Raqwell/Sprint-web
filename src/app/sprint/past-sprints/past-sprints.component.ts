@@ -54,6 +54,10 @@ export class PastSprintsComponent implements OnInit, AfterViewInit {
         });
     }
 
+    public refresh() {
+        this.loadSprints();
+    }
+
     mapSprints() {
         // map sprints
     }

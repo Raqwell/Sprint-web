@@ -63,9 +63,8 @@ export class ApiClientService {
     }
 
     createSprint(sprint: Sprint): Observable<any> {
-        //add user to sprint
         let body = JSON.stringify(sprint);
-        return this.http.put(this.endpoint + 'sprints', body, this.httpOptions).pipe(
+        return this.http.post(this.endpoint + 'sprints', body, this.httpOptions).pipe(
             map(this.extractData));
     }
 

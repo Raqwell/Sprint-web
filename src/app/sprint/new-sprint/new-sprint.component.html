@@ -17,4 +17,6 @@
         <textarea matInput placeholder="What will you be doing?" [formControl]="description" required></textarea>
     </mat-form-field>
     <mat-checkbox [(ngModel)]="notify">Notify me when completed!</mat-checkbox>
+    <br/>
+    <button mat-raised-button (click)="createSprint()">Start</button>
 </div>

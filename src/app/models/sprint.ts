@@ -11,20 +11,24 @@ enum DurationUnit {
     HOUR = "HOUR (h)"
 }
 
-export interface SprintType {
+export class SprintType {
     name: string;
     duration: number;
     unit: number;
     status: number;
+
+    constructor() {}
 }
 
-export interface Sprint {
+export class Sprint {
     sprintType: SprintType;
     progress: number;
     description: string;
     user: string;
     notify: boolean;
-    createdAt: Date;
-    startedAt: Date;
-    finishedAt: Date;
+    createdAt: number;
+    startedAt: number;
+    finishedAt: number;
+
+    constructor() {}
 }
