@@ -1,19 +1,26 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-
+import { Component, OnInit, ChangeDetectorRef, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ApiClientService } from 'src/app/services/api-client/api-client.service';
-import { Sprint } from '../../models/sprint';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { fromEvent } from 'rxjs';
+import { distinctUntilChanged, debounceTime, tap } from 'rxjs/operators';
+import { SprintsDataSource } from 'src/app/services/sprints.datasource';
+import { SprintView } from 'src/app/models/sprintView';
 
 @Component({
   selector: 'app-past-sprints',
   templateUrl: './past-sprints.component.html',
   styleUrls: ['./past-sprints.component.css']
 })
-export class PastSprintsComponent implements OnInit {
-    sprints: Sprint[];
+export class PastSprintsComponent implements OnInit, AfterViewInit {
+    profile: any;
+    sprints: SprintView[];
+    dataSource: SprintsDataSource;
     displayedColumns: string[] = ['length', 'status', 'date', 'start', 'finish', 'description'];
+    filter : string;
+
+    @ViewChild('input', {static: false}) input : ElementRef;
 
     constructor(public auth: AuthService,
         public apiClient: ApiClientService,
@@ -21,18 +28,34 @@ export class PastSprintsComponent implements OnInit {
         public dialog: MatDialog) { }
 
     ngOnInit() {
-        this.refresh();
+        this.getUser();
+        this.dataSource = new SprintsDataSource(this.apiClient);
+        this.loadSprints();
     }
 
-    refresh() {
-        this.getAllSprintsByUser();
-        this.changeDetectorRefs.detectChanges();
+    ngAfterViewInit(): void {
+        fromEvent(this.input.nativeElement, 'keyup').pipe(
+            debounceTime(150),
+            distinctUntilChanged(),
+            tap(() => {
+                this.filter = this.input.nativeElement.value,
+                this.loadSprints();
+            })
+        ).subscribe();
     }
 
-    getAllSprintsByUser() {
-        this.apiClient.getAllSprintsByUser().subscribe((sprints: Sprint[]) => {
-            this.sprints = sprints;
+    loadSprints() {
+        this.dataSource.loadSprints(this.profile.email, this.filter);
+    }
+
+    private getUser() {
+        this.auth.userProfile$.subscribe(val => {
+            this.profile = val;
         });
+    }
+
+    mapSprints() {
+        // map sprints
     }
 
     openDialog(): void {
@@ -42,7 +65,7 @@ export class PastSprintsComponent implements OnInit {
 
         dialogRef.afterClosed().subscribe(result => {
           console.log('The dialog was closed');
-          this.refresh();
+          this.loadSprints();
         });
       }
 

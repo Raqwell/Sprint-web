@@ -10,6 +10,7 @@ import { MatTableModule } from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { SprintsComponent } from "./sprints/sprints.component";
 import { ProfileComponent } from './profile/profile.component';
@@ -35,7 +36,8 @@ import { NewSprintComponent } from './new-sprint/new-sprint.component';
     FormsModule,
     MatTableModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule
   ],
   entryComponents: [
       DeleteSprintsDialogComponent

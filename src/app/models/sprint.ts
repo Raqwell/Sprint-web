@@ -11,11 +11,11 @@ enum DurationUnit {
     HOUR = "HOUR (h)"
 }
 
-export type SprintType = {
+export interface SprintType {
     name: string;
     duration: number;
-    unit: DurationUnit;
-    status: SprintStatus;
+    unit: number;
+    status: number;
 }
 
 export interface Sprint {
@@ -25,6 +25,6 @@ export interface Sprint {
     user: string;
     notify: boolean;
     createdAt: Date;
-    started: Date;
+    startedAt: Date;
     finishedAt: Date;
 }

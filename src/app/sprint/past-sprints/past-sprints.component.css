@@ -24,3 +24,9 @@ table {
     margin: 20px auto;
 
 }
+
+.spinner-container {
+    height: 250px;
+    width: 160px;
+    margin-top: 150px;
+}
